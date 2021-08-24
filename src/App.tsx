@@ -2,6 +2,8 @@ import React, { createContext } from 'react';
 import './style/Parent/Parent.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Welcome from './components/Welcome/Welcome';
+import NewUser from './components/Authenticate/NewUser';
+import ExistingUser from './components/Authenticate/ExistingUser';
 export const UserContext = createContext<any>(null);
 
 function App() {
@@ -17,8 +19,16 @@ function App() {
       <Router>
         <Switch>
 
-          <Route>
+          <Route exact path="/">
             <Welcome />
+          </Route>
+
+          <Route path="/newUser">
+            <NewUser />
+          </Route>
+
+          <Route path="/existingUser">
+            <ExistingUser />
           </Route>
 
         </Switch>
